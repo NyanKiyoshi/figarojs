@@ -20,16 +20,21 @@
     <section>
         <div id="wrapper">
             <div id="comment">
-                <div id="commentcontent">Chargement...</div>
+                <div id="commentcontent">
+                    <script>document.write("Chargement...")</script>
+                    <noscript>
+                        Cette page a besoin de Javascript pour fonctionner, plus d'informations <a href="http://www.enable-javascript.com/fr/">ici</a>.
+                    </noscript>
+                </div>
                 <div id="links">
-                    <a href="javascript:window.location.reload()" title="Recharger la page">Un autre ?</a>
+                    <a style="cursor: pointer" onclick='document.getElementById("commentcontent").innerHTML = randomintro() + ", " + randomconclu();' title="Recharger la page">Un autre ?</a>
                     <a href="http://twitter.com/intent/tweet?text=FigaroJS%20-%20Un%20g%C3%A9n%C3%A9rateur%20(parodique)%20de%20commentaire%20du%20leFigaro.fr&amp;url=http%3A%2F%2Ftheotix.github.io%2Ffigarojs%2F" title="Partager ce site sur Twitter" target="_blank">Tweet</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.min.js"></script>
     <script type="text/javascript">
         WebFontConfig = {
             google: {
