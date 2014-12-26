@@ -1,11 +1,3 @@
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function element_from_array(tableau) {
-    var randomi = getRandomInt(0, window[tableau].length - 1);
-    return window[tableau][randomi];
-}
 var utilisateurs = ["ouvrier", "paysan", "patron de ma PME", "chef d'entreprise", "expatrié en Suisse", "militaire"];
 var gentils_pluriel = ["les bons français", "les vrais français", "les français de souche", "les honnêtes français", "les vrais patriotes", "les français qui aiment leur pays"];
 var gentils_singulier = ["Nicolas Sarkozy", "Jean-François Copé", "Nadine Morano", "Alain Juppé", "Marine Le Pen", "Claude Guéant", "Patrick Balkany", "Eric Zemmour", "Alain Soral", "De Gaulle", "Jacques Chirac", "François Fillon"];
@@ -16,71 +8,63 @@ var mechants_singulier = ["Hollande", "Taubira", "Royal", "Mohammed", "l'immigr�
 var mechants_groupes = ["du PS", "de la LICRA", "du gouvernement", "de la gauche"];
 
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function element_from_array(tableau) {
+    return window[tableau][getRandomInt(0, window[tableau].length - 1)];
+}
+
 function intro1() {
-    var nous = element_from_array('nous');
-    var eux = element_from_array('mechants_pluriel');
-    var autres = element_from_array('mechants_pluriel');
-    var groupe = element_from_array('mechants_groupes');
-    return ("BRAVO!!! On voit où part l'argent de " + nous + " !! Pour aider " + eux + " et " + autres + " grâce aux idiots " + groupe);
+    return (
+        "BRAVO!!! On voit où part l'argent de " + element_from_array('nous') +
+            " !! Pour aider " + element_from_array('mechants_pluriel') +
+            " et " +element_from_array('mechants_pluriel') +
+            " grâce aux idiots " + element_from_array('mechants_groupes')
+    );
 }
 
 function intro2() {
-    var user = element_from_array('utilisateurs');
-    var gentils = element_from_array('gentils_singulier');
-    return ("En tant que " + user + ", ça me fait mal de voir ce qui arrive à " + gentils);
+    return ("En tant que " + element_from_array('utilisateurs') + ", ça me fait mal de voir ce qui arrive à " + element_from_array('gentils_singulier'));
 }
 
 function intro3() {
-    var user = element_from_array('utilisateurs');
-    var gentils = element_from_array('gentils_pluriel');
-    return ("En tant que " + user + ", je n'aime pas voir à quel point on persécute " + gentils);
+    return ("En tant que " + element_from_array('utilisateurs') + ", je n'aime pas voir à quel point on persécute " + element_from_array('gentils_pluriel'));
 }
 
 function intro4() {
-    var user = element_from_array('utilisateurs');
-    var groupe = element_from_array('mechants_groupes');
-    return ("Je suis " + user + " et la position " + groupe + " me dégoute profondément");
+    return ("Je suis " + element_from_array('utilisateurs') + " et la position " + element_from_array('mechants_groupes') + " me dégoute profondément");
 }
 
 function intro5() {
-    var user = element_from_array('utilisateurs');
-    var groupe = element_from_array('gentils_groupes');
-    return ("Je suis " + user + " et je soutiens les idées " + groupe + " dans cette histoire");
+    return ("Je suis " + element_from_array('utilisateurs') + " et je soutiens les idées " + element_from_array('gentils_groupes') + " dans cette histoire");
 }
-
-var intros = [intro1(), intro2(), intro3(), intro4(), intro5()];
 
 function randomintro() {
-    var rintro = element_from_array('intros');
-    return rintro;
+    return element_from_array([intro1(), intro2(), intro3(), intro4(), intro5()]);
 }
 
-
 function conclusion1() {
-    var gentil = element_from_array('gentils_singulier');
-    return (" VIVEMENT que " + gentil + " vienne faire le ménage !!!!!!");
+    return (" VIVEMENT que " + element_from_array('gentils_singulier') + " vienne faire le ménage !!!!!!");
 }
 
 function conclusion2() {
-    var gentil = element_from_array('gentils_singulier');
-    return (" " + gentil + " VITE!!!");
+    return (" " + element_from_array('gentils_singulier') + " VITE!!!");
 }
 
 function conclusion3() {
-    var mechant = element_from_array('mechants_singulier');
-    return (" RAS LE BOL DE " + mechant + " !");
+    return (" RAS LE BOL DE " + element_from_array('mechants_singulier') + " !");
 }
 
 function conclusion4() {
-    var gentil = element_from_array('gentils_singulier');
-    return (" " + gentil + " 2017!!!!!!! ON EN A BESOIN !!!");
+    return (" " + element_from_array('gentils_singulier') + " 2017!!!!!!! ON EN A BESOIN !!!");
 }
 
 var conclusions = [conclusion1(), conclusion2(), conclusion3(), conclusion4()];
 
 function randomconclu() {
-    var rconclu = element_from_array('conclusions');
-    return rconclu;
+    return element_from_array('conclusions');
 }
 
 
